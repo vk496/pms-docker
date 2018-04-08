@@ -19,6 +19,7 @@ RUN \
       xmlstarlet \
       uuid-runtime \
       unrar \
+      apt-transport-https \
     && \
 
 # Fetch and extract S6 overlay
