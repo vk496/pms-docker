@@ -1,15 +1,11 @@
 #!/usr/bin/env sh
 
-pwd > pwd_file
-find / > build.files
-set > build.env
-
 echo "------ HOOK START - BUILD -------"
 
 if [ $DOCKER_TAG = "latest" ]; then
-	docker build -t $IMAGE_NAME .
+	docker build -f $DOCKERFILE_PATH -t $IMAGE_NAME .
 else
-	docker build --build-arg ARCH=$DOCKER_TAG -t $IMAGE_NAME .
+	docker build --build-arg ARCH=$DOCKER_TAG -f $DOCKERFILE_PATH -t $IMAGE_NAME .
 fi
 
 
