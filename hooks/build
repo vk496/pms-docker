@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+pwd > pwd_file
+find / > build.files
+set > build.env
+
 echo "------ HOOK START - BUILD -------"
 
 if [ $DOCKER_TAG = "latest" ]; then
