@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+echo "------ HOOK START - BUILD -------"
+
+if [ $DOCKER_TAG = "latest" ]; then
+	docker build -t $IMAGE_NAME .
+else
+	docker build --build-arg ARCH=$DOCKER_TAG -t $IMAGE_NAME .
+fi
+
+
+echo "------ HOOK END - BUILD -------"
